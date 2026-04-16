@@ -3,11 +3,15 @@ import { createClient } from "@supabase/supabase-js";
 import sharp from "sharp";
 import * as fs from "fs";
 
-const supabase = createClient("SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY");
+const supabase = createClient(
+  "https://wgjxacinfgzynbgjwzxy.supabase.co", // supabase url
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnanhhY2luZmd6eW5iZ2p3enh5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NTk5NTIwNiwiZXhwIjoyMDgxNTcxMjA2fQ.4CKOxX2bQSzTzUqgxqUZeAzmT9Zul3UBpYe77Z6ykLU", //service role key
+);
 
-const BUCKET = "post-images";
-const TARGET_PATH = "posts/bceed2dc-58e2-4e1f-b76b-e8996773de21";
+const BUCKET = "app-bucket"; //main bucket name
+const TARGET_PATH = "removal_requests"; //route path
 
+//function to access the path from supabase
 async function compressOne(fullPath: string) {
   const { data: blob, error } = await supabase.storage
     .from(BUCKET)
@@ -29,6 +33,7 @@ async function compressOne(fullPath: string) {
   if (upError) throw upError;
 }
 
+//entry point
 async function run() {
   let offset = 0;
   let hasMore = true;
