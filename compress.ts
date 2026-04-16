@@ -4,8 +4,8 @@ import sharp from "sharp";
 import * as fs from "fs";
 
 const supabase = createClient(
-  "https://wgjxacinfgzynbgjwzxy.supabase.co", // supabase url
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnanhhY2luZmd6eW5iZ2p3enh5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NTk5NTIwNiwiZXhwIjoyMDgxNTcxMjA2fQ.4CKOxX2bQSzTzUqgxqUZeAzmT9Zul3UBpYe77Z6ykLU", //service role key
+  "supabase_url", // supabase url
+  "service_key", //service role key
 );
 
 const BUCKET = "app-bucket"; //main bucket name
