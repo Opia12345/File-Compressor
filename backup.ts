@@ -6,7 +6,7 @@ import "dotenv/config";
 
 /**
  * CONFIGURATION
- * Ensure these are set in your .env file or directly below
+ * Ensure these are set in your .env file
  */
 
 const SUPABASE_URL =
